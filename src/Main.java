@@ -126,5 +126,36 @@ public class Main {
             }
         }
     }
+    public static void ejercicio9while() {
+        //Modifica el ejercicio anterior para que el usuario solo tenga 3 intentos.
+        // Si se llega a los 3 intentos, imprime “Demasiados intentos”.
+        Scanner sc = new Scanner(System.in);
 
+        // Variables con nombre y contranseya
+        String usuarioCorrecto = "admin";
+        String contrasenyaCorrecta = "1234";
+
+        int intentos = 0;
+        int maxintentos = 3;
+
+        while (true) {
+            System.out.println("Introduzca el nombre:");
+            String nombre = sc.nextLine();
+
+            System.out.println("Introduzca la contraseña:");
+            String contrasenya = sc.nextLine();
+
+            if (nombre.equals(usuarioCorrecto) && contrasenya.equals(contrasenyaCorrecta)) {
+                System.out.println("Éxito");
+                break;
+            } else {
+                intentos++;
+                if (intentos < maxintentos) {
+                    System.out.println("Error: Usuario o contraseña incorrectos");
+                } else {
+                    System.out.println("Error: demasiados intentos");
+                }
+            }
+        }
+    }
 }
