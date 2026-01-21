@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -5,7 +6,7 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        ejercicio8while();
+        ejercicio18for();
     }
 
     public static void while1() {
@@ -23,39 +24,39 @@ public class Main {
 
     public static void ejercicio1while() {
         //Imprime los números del 1 al 10.
-        int numero = 1; // inicia variable
-        while (numero <= 10) {//mientas nº sea menor o igual 10 imprime el valor
-            System.out.println(numero);
-            numero++; //detente cuando llega a 11
+        int i = 1; // inicia variable
+        while (i <= 10) {//mientas nº sea menor o igual 10 imprime el valor
+            System.out.println(i);
+            i++; //detente cuando llega a 11
         }
     }
 
     public static void ejercicio2while() {
         //Imprime los números del 10 al 1
-        int numero = 10;// inicia variable
-        while (numero >= 1) {// nº sea mayor o igual 1 imprime valor
-            System.out.println(numero);
-            numero--; //detente cuando llegue a 0
+        int i = 10;// inicia variable
+        while (i >= 1) {// nº sea mayor o igual 1 imprime valor
+            System.out.println(i);
+            i--; //detente cuando llegue a 0
         }
     }
 
     public static void ejercicio3while() {
         //Imprime la suma de los números del 1 al 10.
-        int numero = 1; //
+        int i = 1; //
         int suma = 0;//acumulador
-        while (numero <= 10) {
-            suma += numero;
-            numero++;
+        while (i <= 10) {
+            suma += i;
+            i++;
         }
         System.out.println(suma);
     }
 
     public static void ejercicio4while() {
         //Imprime los números del 1 al 20 saltando de 2 en 2
-        int numero = 1;
-        while (numero <= 20) {
-            System.out.println(numero);
-            numero += 2;// para saltarme dos numeros
+        int i = 1;
+        while (i <= 20) {
+            System.out.println(i);
+            i += 2;// para saltarme dos numeros
         }
     }
 
@@ -92,10 +93,10 @@ public class Main {
 
     public static void ejercicio7while() {
         //Imprime los números divisibles entre 3 que hay entre el 1 y el 50.
-        int numero = 3;
-        while (numero <= 50) {
-            System.out.println(numero);
-            numero += 3; // sumamos 3 para ir al siguiente visible
+        int i = 3;
+        while (i <= 50) {
+            System.out.println(i);
+            i += 3; // sumamos 3 para ir al siguiente visible
 
         }
     }
@@ -157,5 +158,68 @@ public class Main {
                 }
             }
         }
+    }
+    public static void ejercicio10for() {
+        //Imprime los números del 1 al 10.
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+    public static void ejercicio11for() {
+        //Imprime los números del 10 al 1.
+        for (int i = 10; i >= 1; i--) {
+            System.out.println(i);
+        }
+    }
+    public static void ejercicio12for() {
+        //Imprime la suma de los números del 1 al 10.
+        int suma = 0;
+        for (int i = 1; i <= 10; i++ ){
+            suma += i;
+            System.out.println(suma);
+        }
+    }
+    public static void ejercicio13for() {
+        //Imprime los números del 1 al 20 saltando de 2 en 2.
+        for ( int i = 1; i <= 20 ; i += 2){
+            System.out.println(i);
+        }
+    }
+    public static void ejercicio14for() {
+        //Calcula el factorial del número 9.
+        int factorial = 1;
+        for ( int i = 9; i > 0; i --){
+            factorial *= i;
+            System.out.println(factorial);
+        }
+    }
+    public static void ejercicio15for() {
+        //Imprime la tabla de multiplicar del 7.
+        for ( int i = 1; i <= 10; i++){
+            System.out.println(i * 7);
+        }
+    }
+    public static void ejercicio16for() {
+        //Imprime los números pares que hay entre el 1 y el 50.
+        for (int i = 2; i <= 50; i += 2){
+            System.out.println(i);
+        }
+    }
+    public static void ejercicio17for() {
+        //Simula lanzar un dado 6 veces e imprime los resultados.
+        for (int i = 1; i <= 6; i++) {
+            int aleatorio = new Random().nextInt(6) + 1;
+            System.out.println("Lanzamiento " + i + ": " + aleatorio);
+        }
+    }
+    public static void ejercicio18for() {
+        //Crea un array con 5 cadenas de texto e imprime cada una de ellas con el formato
+        // “Cadena <número>: <texto>”.
+        String[] cadenas = {"Alba", "Pepe", "Ana", "Dora", "Manoli"};
+        for (int i = 0; i < cadenas.length; i++) {
+            System.out.println("Cadena" + ( i + 1) + ": " + cadenas[i]);
+        }
+
+
     }
 }
