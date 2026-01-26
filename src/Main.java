@@ -260,7 +260,7 @@ public class Main {
         numeros.add(5);
         int par = 0;
         int impar=0;
-        for (int n : numeros){
+        for (Integer n : numeros){
             if (n % 2 == 0) {
                 par++;
             }else  {
@@ -288,7 +288,6 @@ public class Main {
             if (nombre.equals(nombrelista)) {
                 existe = true;
                 break;
-
             }
         }
         if (existe) {
@@ -317,42 +316,49 @@ public class Main {
         //Crea un HashMap con 5 nombres y notas, e
         // imprime quién tiene la nota más baja y quién tiene la nota más alta.
         // Imprime también la nota media.
-        HashMap<String, Double> nombres = new HashMap<>();
-        nombres.put("Alba", 1.0);
-        nombres.put("Pepe", 2.0);
-        nombres.put("Ana", 3.0);
-        nombres.put("Dora", 4.0);
-        nombres.put("Manoli", 5.0);
-        double notaalta = 5.0;
-        double notabaja = 1.0;
-        double media = 0;
-        for (String nombre : nombres.keySet()) {
-            if (nombres.get(nombre).equals(nombre)) {
-                notaalta++;
-            }else if (nombres.get(nombre).equals(nombre)) {
-                notabaja++;
+        HashMap<String, Double> notas = new HashMap<>();
+        notas.put("Alba", 1.0);
+        notas.put("Pepe", 2.0);
+        notas.put("Ana", 3.0);
+        notas.put("Dora", 4.0);
+        notas.put("Manoli", 5.0);
+        String alumnoAlta = "";
+        String alumnoBaja = "";
+        double masbaja = 10.0;
+        double masalta = 0.0;
+        double media = 0.0;
+        for (String alumno : notas.keySet()) {
+            double notaactual = notas.get(alumno);
+            media += notaactual;
+            if (notaactual >= masalta) {
+                alumnoAlta = alumno;
+                masalta = notaactual;
+            }
+            if (notaactual <= masbaja){
+                alumnoBaja = alumno;
+                masbaja = notaactual;
             }
         }
-        double notamedia = media / nombres.size();
-        System.out.println("La nota mas alta es: " + notaalta);
-        System.out.println("La nota mas abaja es: " + notabaja);
-        System.out.println("La media es: " + media);
+        media = media/notas.size();
+        System.out.println("Alumno: " + alumnoAlta);
+        System.out.println("Alumno baja: " + alumnoBaja);
+        System.out.println("Media:" + media);
     }
     public static void ejercicio26foreach() {
         //Crea un HashMap con 5 productos y precios,
         // e imprime la lista completa pero sumándole el IVA (21%)
         // al precio de cada producto.
         HashMap<String, Double> productos = new HashMap<>();
-        productos.put("Alba", 1.0);
-        productos.put("Pepe", 2.0);
-        productos.put("Ana", 3.0);
-        productos.put("Dora", 4.0);
-        productos.put("Manoli", 5.0);
+        productos.put("manzana", 1.0);
+        productos.put("Papa", 2.0);
+        productos.put("Platano", 3.0);
+        productos.put("Dorito", 4.0);
+        productos.put("Milagrito", 5.0);
         double precioiva = 0.21;
         for(String producto : productos.keySet()) {
            double precio = productos.get(producto);
-           double preciofinal = precio * (precioiva + 1.0);
-            System.out.println("Precio final: " + preciofinal);
+           double preciofinal = precio * ( precioiva + 1) ;
+            System.out.println(producto + " su precio final: " + preciofinal);
         }
     }
     public static void ejercicio27foreach() {
@@ -365,18 +371,16 @@ public class Main {
         personas.put("Dora", 24);
         personas.put("Manoli", 15);
         int ANIO_ACTUAL = 2026;
-        final int MAYORIA_EDAD = 18;
         int contadorMayores = 0;
-        System.out.println("Personas mayores de edad:");
-
         for (String nombre : personas.keySet()) {
             int anioNacimiento = personas.get(nombre);
             int edad = ANIO_ACTUAL - anioNacimiento;
 
-            if (edad >= MAYORIA_EDAD) {
+            if (edad >= 18) {
                 System.out.println("- " + nombre + " (edad: " + edad + " años)");
                 contadorMayores++;
             }
         }
-    }
+        System.out.println("Mayores: " + contadorMayores);
+   }
 }
